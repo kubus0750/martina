@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Flexbox</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<section class="hero">
+			<div class="container">
+				<div class="hero__text">
+					<div class="hero__text--logo">
+						<img src="./img/logo.png" alt="" class="logo" />
+						<!-- 	<h1 class="hero__text--h1">
+							Nehtové studio N4-You
+						</h1> -->
+						<h2 class="hero__text--h2">
+							Dokonalé nehty pro každou příležitost
+						</h2>
+					</div>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+					<div class="obrazky">
+						<img src="./img/foto_16.jpg" alt="" class="nehty" />
+						<img src="./img/foto_15.jpg" alt="" class="nehty" />
+						<img src="./img/foto_18.jpg" alt="" class="nehty" />
+						<!-- <img src="./foto_19.jpg" alt="" class="nehty" /> -->
+					</div>
+					<div class="section-2">
+						<p class="column">
+							Je to již více než 15 let od doby, kdy jsem poprvé dostala nápad věnovat se modeláži nehtů. Od založení nehtového studia s
+							několika manikérkami až po současnost uplynulo mnoho času, a tak nový vzhled dostaly i tyto webové stránky a facebook.
+							Vzhledem k tomu, že jsem se posledních několik let věnovala hlavně svým dětem, můj kosmetický salon ve Strašnicích již
+							nenajdete. Stěhujeme se do Písnice (Praha-4), kde jsem pro Vás nedávno otevřela zbrusu novou místnost s nově zařízeným
+							studiem. Vaše ruce a nehty se u nás promění k nepoznání a k překvapení Vašich manželů, přátel, spolupracovníků, ale hlavně ke
+							spokojenosti Vaší. Můžete si vybrat gelové nehty, modeláž nehtů nebo se rozhodnout pro přírodní nehty, které jen zpevním a
+							upravím manikúrou s P-schine.
+						</p>
+						<div class="column column-center">
+							<img class="image image-circle" cover src="./img/4101379363.jpg" alt="" />
+						</div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+						<p class="column">
+							Též doufám, že využijete velmi <span class="emphasized"> krásnou a moderní francouzskou manikúru </span>, která Vaše nehty
+							rozzáří a dodá jim eleganci. <span class="emphasized"> Gelové nehty </span> je možné ozdobit různými kamínky a kytičkami. Tyto
+							ozdoby včetně francouzské manikúry na nehtech zůstávají i po odlakování, což je velmi praktické a tudíž jsou nehty stále
+							upravené a krásné. V našem novém studiu Vám udělám nejen krásnou modeláž nehtů podle Vašeho přání, ale také Vás zdarma
+							pohostím kávičkou Dolce Gusto v mnoha variantách pro relaxaci či džusíkem pro nabití nové energie během modeláže nehtů. Velmi
+							příjemný je též parafínový zábal, který zregeneruje nejen nehty, ale i ruce.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section-3">
+			<div class="container row">
+				<div id="root"></div>
+			</div>
+		</section>
+	</body>
 </html>
