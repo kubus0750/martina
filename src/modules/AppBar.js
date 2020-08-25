@@ -1,36 +1,51 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React, { useState } from 'react';
+import { Form, Input, Button, Radio } from 'antd';
 
-/* const useStyles = makeStyles(theme => ({
-	root: {
-		flexGrow: 1
-  },
-  
-	menuButton: {
-		marginRight: theme.spacing(2)
-	}
-})); */
+const FormLayoutDemo = () => {
+	const [form] = Form.useForm();
+	const [formLayout, setFormLayout] = useState('horizontal');
 
-export default function DenseAppBar() {
-	/* 	const classes = useStyles(); */
+	const onFormLayoutChange = ({ layout }) => {
+		setFormLayout(layout);
+	};
+
+	const formItemLayout =
+		formLayout === 'horizontal'
+			? {
+					labelCol: { span: 4 },
+					wrapperCol: { span: 14 }
+			  }
+			: null;
+
+	const buttonItemLayout =
+		formLayout === 'horizontal'
+			? {
+					wrapperCol: { span: 14, offset: 4 }
+			  }
+			: null;
 
 	return (
-		<div className={classes.root}>
-			<AppBar title="Prosím vyberte si termín návštěvy" position="static">
-				<Toolbar variant="dense">
-					<IconButton edge="center" className={classes.menuButton} color="inherit" aria-label="menu">
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6" color="inherit">
-						Photos
-					</Typography>
-				</Toolbar>
-			</AppBar>
-		</div>
+		<>
+			<Form {...formItemLayout} layout={formLayout} form={form} initialValues={{ layout: formLayout }} onValuesChange={onFormLayoutChange}>
+				<Form.Item label="Form Layout" name="layout">
+					<Radio.Group value={formLayout}>
+						<Radio.Button value="horizontal">Horizontal</Radio.Button>
+						<Radio.Button value="vertical">Vertical</Radio.Button>
+						<Radio.Button value="inline">Inline</Radio.Button>
+					</Radio.Group>
+				</Form.Item>
+				<Form.Item label="Field A">
+					<Input placeholder="input placeholder" />
+				</Form.Item>
+				<Form.Item label="Field B">
+					<Input placeholder="input placeholder" />
+				</Form.Item>
+				<Form.Item {...buttonItemLayout}>
+					<Button type="primary">Submit</Button>
+				</Form.Item>
+			</Form>
+		</>
 	);
-}
+};
+
+ReactDOM.render(<FormLayoutDemo />, mountNode);
