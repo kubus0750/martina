@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { DatePicker, Alert, Steps, Button, message, Row, Col, Radio } from 'antd';
+import { DatePicker, Steps, Form, Row, Input, Button, message, Col, Radio } from 'antd';
 import 'antd/dist/antd.css';
 import 'moment/locale/cs';
 import locale from 'antd/es/date-picker/locale/cs_CZ';
 import moment from 'moment';
+import formular from './Formular';
 
 export default function Steppers() {
 	const [date, setDate] = useState(moment());
@@ -20,6 +21,15 @@ export default function Steppers() {
 
 	const actualDate = moment(date).format('DD-MM-YYYY');
 
+	function next() {
+		setCurrent(current + 1);
+	}
+
+	function prev() {
+		setCurrent(current - 1);
+	}
+
+	// Steps
 	const steps = [
 		{
 			title: 'Vyberte si datum a volný termín',
@@ -57,17 +67,9 @@ export default function Steppers() {
 		},
 		{
 			title: 'Zadejte kontaktní údaje',
-			content: 'Last-content'
+			content: <Col span={24}>{formular()}</Col>
 		}
 	];
-
-	function next() {
-		setCurrent(current + 1);
-	}
-
-	function prev() {
-		setCurrent(current - 1);
-	}
 
 	return (
 		<>
