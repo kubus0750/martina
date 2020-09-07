@@ -21,6 +21,7 @@ export default function Steppers() {
 	};
 
 	const selectedDate = moment(date).format('dddd DD-MM-YYYY');
+	const actualSlots = showSlots(date);
 
 	function next() {
 		setCurrent(current + 1);
@@ -34,8 +35,6 @@ export default function Steppers() {
 		// Can not select days before today and today
 		return current && current < moment().startOf('day');
 	}
-
-	showSlots(date);
 
 	// Steps
 	const steps = [
@@ -59,16 +58,13 @@ export default function Steppers() {
 					<Col span={16}>
 						<Space>
 							<Radio.Group name="jakub2" defaultValue="0" buttonStyle="solid" size="large" optionType="default" style={{ marginTop: 16 }}>
-								<Radio.Button value="0">10:30 - 12:00</Radio.Button>
-								<Radio.Button value="1">12:00 - 13:00</Radio.Button>
-								<Radio.Button value="2">14:00 - 15:00</Radio.Button>
-								<Radio.Button value="3" disabled={true}>
-									16:00 - 17:00
-								</Radio.Button>
-								<Radio.Button value="4">17:00 - 18:00</Radio.Button>
-								<Radio.Button value="5">18:00 - 19:00</Radio.Button>
-								<Radio.Button value="6">19:00 - 20:00</Radio.Button>
-								<Radio.Button value="7">20:00 - 21:00</Radio.Button>
+								{actualSlots.map((slots1, index) => {
+									return (
+										<Radio.Button key={index} value="index">
+											{`${slots1.from} - ${slots1.till}`}
+										</Radio.Button>
+									);
+								})}
 							</Radio.Group>
 						</Space>
 					</Col>
