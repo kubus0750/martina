@@ -12,6 +12,7 @@ export default function Steppers() {
 	const [current, setCurrent] = useState(0); // Step
 	const [kalendar, setKalendar] = useState(false);
 	const { Step } = Steps;
+	const [selectedSlot, setSelectedSlot] = useState();
 
 	const otevriKalendar = () => setKalendar(!kalendar);
 
@@ -56,27 +57,41 @@ export default function Steppers() {
 						</a>
 					</Col>
 					<Col span={16}>
-						<Space>
-							<Radio.Group name="jakub2" defaultValue="0" buttonStyle="solid" size="large" optionType="default" style={{ marginTop: 16 }}>
-								{actualSlots.map((slots1, index) => {
+						<Radio.Group
+							name="jakub2"
+							defaultValue="0"
+							buttonStyle="solid"
+							size="large"
+							optionType="default"
+							style={{ marginTop: 16, width: '100%' }}
+							onChange={e => {
+								setSelectedSlot(e.target.value);
+							}}
+						>
+							{actualSlots ? (
+								Object.keys(actualSlots).map((slot, index) => {
 									return (
-										<Radio.Button key={index} value="index">
-											{`${slots1.from} - ${slots1.till}`}
+										<Radio.Button value={slot} key={index} disabled={actualSlots[slot].reserved}>
+											{`${actualSlots[slot].from} - ${actualSlots[slot].till}`}
 										</Radio.Button>
 									);
-								})}
-							</Radio.Group>
-						</Space>
+								})
+							) : (
+								<Radio.Button disabled style={{ marginTop: 16, width: '80%' }} key={55} value={55}>
+									Bohužel žádné volné termíny v tomto dni
+								</Radio.Button>
+							)}
+						</Radio.Group>
 					</Col>
 				</>
 			)
 		},
 		{
 			title: 'Zadejte kontaktní údaje',
-			content: <Col span={24}>{formular()}</Col>
+			content: <Col span={24}>{formular('jakub')}</Col>
 		}
 	];
-
+	console.log(selectedSlot);
 	return (
 		<>
 			<Steps current={current}>

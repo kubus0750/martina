@@ -9,10 +9,10 @@ import Demo from './modules/Test';
 
 export default function App() {
 	return (
-		<div>
+		<>
 			<Steppers />
 			{/* <Test /> */}
-			<Demo />
-		</div>
+			{/* <Demo /> */}
+		</>
 	);
 }

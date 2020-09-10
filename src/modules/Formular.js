@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Row, Input, Button, Space } from 'antd';
 
-export default function Formular() {
+export default function Formular(slot) {
 	const onFinish = values => {
-		console.log('Success:', values);
+		console.log('Success:', Object.assign({}, values, { slot: slot }));
 	};
 
 	const onFinishFailed = errorInfo => {
